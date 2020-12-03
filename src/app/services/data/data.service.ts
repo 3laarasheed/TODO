@@ -8,51 +8,6 @@ const Todos: Todo[] = [
     date: new Date()
   },
   {
-    title: 'todo-title',
-    desc: 'todo-description',
-    date: new Date()
-  },
-  {
-    title: 'todo-title',
-    desc: 'todo-description',
-    date: new Date()
-  },
-  {
-    title: 'todo-title',
-    desc: 'todo-description',
-    date: new Date()
-  },
-  {
-    title: 'todo-title',
-    desc: 'todo-description',
-    date: new Date()
-  },
-  {
-    title: 'todo-title',
-    desc: 'todo-description',
-    date: new Date()
-  },
-  {
-    title: 'todo-title',
-    desc: 'todo-description',
-    date: new Date()
-  },
-  {
-    title: 'todo-title',
-    desc: 'todo-description',
-    date: new Date()
-  },
-  {
-    title: 'my-title',
-    desc: 'my-description',
-    date: new Date()
-  },
-  {
-    title: 'todo-title',
-    desc: 'todo-description',
-    date: new Date()
-  },
-  {
     title: 'my-title',
     desc: 'my-description',
     date: new Date()
@@ -77,8 +32,8 @@ export class DataService {
   getData() {
     return Todos;
   }
-  postData() {
-    throw new Error('method not implemented');
+  postData(obj: Todo) {
+    Todos.push(obj);
   }
   updateData() {
     throw new Error('method not implemented');

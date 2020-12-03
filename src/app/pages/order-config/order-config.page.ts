@@ -37,6 +37,7 @@ patchForm(){
       title: ['', Validators.required],
       desc: ['', Validators.required]
     });
+    this.dataService.postData(this.todo);
   }
   onSubmit() {
     console.log(this.form.value);
