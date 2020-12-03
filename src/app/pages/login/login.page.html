@@ -1,0 +1,38 @@
+<ion-content class="ion-padding">
+  
+  <!-- make it responsive -->
+  <ion-row class="ion-justify-content-center">
+    <ion-col size="12" size-sm="12" size-md="6">
+      <!-- note each scale handel bigger scales -->
+      
+      <h2>
+        <ion-text>Auth</ion-text>
+      </h2>
+
+      <p>
+        <ion-text> Sign in to continue </ion-text>
+      </p>
+      
+      <div class="form">
+        <form [formGroup]="form">
+          
+          <ion-item>
+            <ion-icon slot="start" name="person-outline"></ion-icon>
+            <ion-input formControlName="username" type="text" placeholder="username"></ion-input>
+          </ion-item>
+          
+
+          <ion-item>
+            <ion-icon slot="start" name="lock-closed-outline"></ion-icon>
+            <ion-input formControlName="password" type="password" placeholder="password"></ion-input>
+          </ion-item>
+        </form>
+
+        <ion-button expand="block" mode="ios" shape="round" [disabled]='!form.valid' (click)="onSubmit()" >
+          sign in
+        </ion-button>
+      
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title mode="ios">Home</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- refresher -->
+  <ion-refresher slot="fixed" (ionRefresh)="refreshPage($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- spinner -->
+
+  <ion-row class="ion-justify-content-center ion-align-items-center height" *ngIf="loading" >
+    <ion-col size="auto">
+      <ion-spinner></ion-spinner>
+    </ion-col>
+  </ion-row>
+
+
+  <!-- content  -->
+
+  <ion-row class="ion-justify-content-center" *ngIf="todos">
+    <ion-col size="12" size-sm="12" size-md="6">
+      
+      
+      <ion-card *ngFor="let todo of todos; let i = index">
+        <ion-item lines="none">
+          <div class="index">{{i + 1}}</div>
+          <ion-label (click)="detail(todo)">
+            <!-- todo which is data i want to show -->
+            <h2>
+              <ion-text> {{todo.title}} </ion-text>
+            </h2>
+            <p>
+              <ion-text> {{todo.desc}} </ion-text>
+            </p>
+          </ion-label>
+
+          <ion-button (click)="delete(i)" fill="clear" color="danger">
+            <ion-icon class="dist" slot="icon-only" name="trash"></ion-icon>
+          </ion-button>
+
+          <ion-button slot="end" color="secondary" fill="clear" (click)="edit(todo)">
+            <ion-icon slot="icon-only" name="create"></ion-icon>
+          </ion-button>
+
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+  <!-- FAB -->
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="createTodo()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- infinite -->
+  <ion-infinite-scroll threshold="25%" position="bottom" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
+
+</ion-content>
