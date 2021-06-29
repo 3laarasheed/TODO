@@ -23,32 +23,38 @@ export class OrderConfigPage implements OnInit {
   }
 
   // this method check if i have a form in my todo then it maps each value in right place
-patchForm(){
-  if (this.todo){
-    this.form.patchValue({
-      title : this.todo.title,
-      desc : this.todo.desc
-    });
+  patchForm() {
+    if (this.todo) {
+      this.form.patchValue({
+        title: this.todo.title,
+        desc: this.todo.desc
+      });
+    }
   }
-}
 
   creatForm() {
     this.form = this.fb.group({
       title: ['', Validators.required],
       desc: ['', Validators.required]
     });
-    this.dataService.postData(this.todo);
+
+    // this.dataService.postData(this.todo);
   }
   onSubmit() {
-    console.log(this.form.value);
+    
     // if i edit or not i need to save last values in my reference value
     const form = this.form.value;
-    if (this.todo){
+    if (this.todo) {
       this.todo.title = form.title;
       this.todo.desc = form.desc;
       this.todo.date = new Date();
     }
-    this.navCtrl.pop();
+    else{
+      console.log( this.form.value);
+      // form.title = this.todo.title;
+      form.desc = this.todo.title;
+    }
+    this.navCtrl.navigateBack('home')
   }
 }
 // this page is for add and edit

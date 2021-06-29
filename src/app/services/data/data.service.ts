@@ -12,6 +12,34 @@ const Todos: Todo[] = [
     desc: 'my-description',
     date: new Date()
   },
+  {
+    title: 'todo-title',
+    desc: 'todo-description',
+    date: new Date()
+  },
+  {
+    title: 'my-title',
+    desc: 'my-description',
+    date: new Date()
+  },  {
+    title: 'todo-title',
+    desc: 'todo-description',
+    date: new Date()
+  },
+  {
+    title: 'my-title',
+    desc: 'my-description',
+    date: new Date()
+  },  {
+    title: 'todo-title',
+    desc: 'todo-description',
+    date: new Date()
+  },
+  {
+    title: 'my-title',
+    desc: 'my-description',
+    date: new Date()
+  },
 ];
 // Date().toLocaleDateString
 @Injectable({
@@ -33,7 +61,7 @@ export class DataService {
     return Todos;
   }
   postData(obj: Todo) {
-    Todos.push(obj);
+    Todos.unshift(obj);
   }
   updateData() {
     throw new Error('method not implemented');
